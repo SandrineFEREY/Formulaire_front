@@ -14,7 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
         message: document.getElementById("message").value,
       };
       console.log(data);
-      // const response = await axios.post("https://702d7b55.ngrok.io", data);
-      // console.log(response);
+      const response = await axios.post("http://localhost:3000/", data);
+      console.log(response);
+      if (response.status !== 200) {
+        alert("Erreur: Le formulaire n'a pas été envoyé.");
+      } else {
+        console.log("Votre formulaire a bien été envoyé !");
+      }
     });
 });
